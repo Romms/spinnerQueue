@@ -9,8 +9,8 @@ Example:
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
     <!-- spinnerQueue -->
-    <script type="text/javascript" src="spinnerQueue/spinnerQueue.js')}"></script>
-    <link rel="stylesheet" type="text/css" href="spinnerQueue/spinnerQueue.css')}" />
+    <script src="spinnerQueue/spinnerQueue.js" type="text/javascript"></script>
+    <link  href="spinnerQueue/spinnerQueue.css" rel="stylesheet" type="text/css" />
 
     <script>
         $('body').spinnerQueue({showSpeed: 'fast', hideSpeed:'fast'}).spinnerQueue('started', 'pageLoad', false);
