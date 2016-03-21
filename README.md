@@ -78,7 +78,7 @@ spinnerQueue('started', key, [isCumulative])
 | Parameters | Description   |
 |------------|---------------|
 | **key**<br>(Type: String)   | Name of task. |
-| **isCumulative**<br>(Type: Boolean, default: *False*) | If *isCumulative* equal *True* every next call *spinnerQueue('started', key, true)* or *spinnerQueue('started', key)* will increases number of using *key* task by 1.<br>In order to remove *key* task from queue spinnerQueue('finished', key) must be called appropriate number times.<br>If *isCumulative* equal *False* then one call spinnerQueue('finished', key) remove *key* task from queue. |
+| **isCumulative**<br>(Type: Boolean, default: *False*) | If *isCumulative* is *True* every next call *spinnerQueue('started', key, true)* or *spinnerQueue('started', key)* will increase number of using *key* task by 1.<br>In order to remove *key* task from queue spinnerQueue('finished', key) must be called appropriate number times.<br>If *isCumulative* is *False* then one call spinnerQueue('finished', key) removes *key* task from queue. |
 
 ##### Finished
 ```JavaScript
@@ -104,7 +104,7 @@ $('body').spinnerQueue(options);
 **queue**
 : It is object that contains tasks names as keys.
 : If value of key is *True* then one call of spinnerQueue('finished', key) is enough to removing task from queue. If spinnerQueue('started', key) or spinnerQueue('started', key, false) is already called, nothing will change.
-: If value of key is *Number* then every spinnerQueue('started', key, [true]) increases value by 1. Task with name *key* deletes if spinnerQueue('finished', key) will be called *value* times
+: If value of key is *Number* then every spinnerQueue('started', key, [true]) will increase value by 1. Task with name *key* will delete if spinnerQueue('finished', key) is called *value* times.
 
 #### Destroy
 Remove spinner from DOM
@@ -123,4 +123,3 @@ var isEmpty = $('body').spinnerQueue('isQueueEmpty');
 ```JavaScript
 var size = $('body').spinnerQueue('queueSize');
 ```
-
