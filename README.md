@@ -23,6 +23,9 @@ Example:
 ### Init
 ```JavaScript
 $('body').spinnerQueue()
+```
+or
+```JavaScript
 $('body').spinnerQueue({showSpeed: 'fast', hideSpeed:'fast'})
 ```
 ### On task start
