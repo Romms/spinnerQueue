@@ -19,6 +19,19 @@
             this._hide();
         },
 
+        _setOption: function( key, value ) {
+            this.options[key] = value;
+
+            if('queue' == key){
+                this._deleteEmpty();
+
+                if( 0 == this.queueSize()  ){
+                    this._hide();
+                    this._trigger('queueEnded');
+                }
+            }
+        },
+
         destroy: function() {
             $(this.element).find('.spinnerQueue').remove();
         },
@@ -58,6 +71,8 @@
                 }
             }
 
+            this._deleteEmpty();
+
             if( 0 == this.queueSize()  ){
                 this._hide();
                 this._trigger('queueEnded');
@@ -90,6 +105,16 @@
         _hide : function(){
             $(this.element).find('.spinnerQueue').stop().fadeOut( this.options.hideSpeed );
         },
+
+        _deleteEmpty : function(){
+            $.each( this.options.queue, function( key, value ) {
+                if(value === true || ($.isNumeric(value) && value > 0)){
+                    // It's all ok
+                } else {
+                    delete this.options.queue[key];
+                }
+            });
+        }
 
     });
 
