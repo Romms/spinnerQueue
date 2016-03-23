@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spinner On Div</title>
+
+    <!-- Include Required Prerequisites -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <!-- spinnerQueue -->
+    <script src="../spinnerQueue.js" type="text/javascript"></script>
+    <link  href="../spinnerQueue.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        body {
+            background-color: #efe;
+
+        }
+        .box {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 50px;
+
+            padding: 20px;
+
+            border: 3px solid #eee;
+            background-color: #fff;
+            float: left;
+        }
+
+        body > .spinnerQueue .spinner-image{
+            background: green;
+        }
+    </style>
+
+    <script>
+
+        $( document ).ready(function() {
+
+            $('.box1').spinnerQueue({showSpeed: 'fast', hideSpeed:'fast'}).spinnerQueue('started', 'box1Load');
+            setTimeout(function() {
+                $('.box1').spinnerQueue('finished', 'box1Load'); $('.box1 .loaded').text('Loaded!');
+            }, 1500);
+
+
+            $('.box2').spinnerQueue({showSpeed: 'fast', hideSpeed:'fast'}).spinnerQueue('started', 'box2Load' , true);
+            $('.box2').spinnerQueue('started', 'box2Load', true);
+            $('.box2').spinnerQueue('started', 'box2Load', true);
+
+            setTimeout(function() {   $('.box2').spinnerQueue('finished', 'box2Load'); $('.box2 .loaded').text(1);  }, 1000);
+            setTimeout(function() {   $('.box2').spinnerQueue('finished', 'box2Load'); $('.box2 .loaded').text(2);  }, 2000);
+            setTimeout(function() {   $('.box2').spinnerQueue('finished', 'box2Load'); $('.box2 .loaded').text(3);  }, 4000);
+
+
+            setTimeout(function() {   $('body').spinnerQueue('finished', 'pageLoad');    }, 2000);
+        });
+    </script>
+</head>
+<body>
+
+    <div class="box box1">
+        <h1>Box 1</h1>
+        Suspendisse potenti. Nulla sit amet justo erat. Suspendisse dignissim id neque quis feugiat. Nulla consequat aliquet iaculis. Sed sagittis rutrum nunc a pharetra. Vestibulum in viverra justo. Quisque eget mi pellentesque, blandit tellus semper, placerat turpis. Etiam pharetra vestibulum sem, non ultricies leo consectetur in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean ac justo mattis, auctor augue id, venenatis magna. Donec id mauris dapibus, efficitur magna sed, hendrerit nisi. Maecenas nec quam a est condimentum auctor sed in lorem. Sed sodales, felis ac ultricies suscipit, felis tortor malesuada tellus, non efficitur mi lorem sit amet quam. Quisque nulla risus, rutrum ac aliquam eget, dictum aliquam mi.
+        <h3>
+            <span class="loaded">Loading ...</span>
+        </h3>
+    </div>
+
+    <div class="box box2">
+        <h1>Box 2</h1>
+        Suspendisse potenti. Nulla sit amet justo erat. Suspendisse dignissim id neque quis feugiat. Nulla consequat aliquet iaculis. Sed sagittis rutrum nunc a pharetra. Vestibulum in viverra justo. Quisque eget mi pellentesque, blandit tellus semper, placerat turpis. Etiam pharetra vestibulum sem, non ultricies leo consectetur in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean ac justo mattis, auctor augue id, venenatis magna. Donec id mauris dapibus, efficitur magna sed, hendrerit nisi. Maecenas nec quam a est condimentum auctor sed in lorem. Sed sodales, felis ac ultricies suscipit, felis tortor malesuada tellus, non efficitur mi lorem sit amet quam. Quisque nulla risus, rutrum ac aliquam eget, dictum aliquam mi.
+        <h3>
+            Loaded <span class="loaded">0</span> of 3
+        </h3>
+    </div>
+    <script>
+        $('body').spinnerQueue({showSpeed: 'fast', hideSpeed:'fast'}).spinnerQueue('started', 'pageLoad');
+    </script>
+
+</body>
+</html>
