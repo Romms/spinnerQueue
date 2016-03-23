@@ -2,14 +2,14 @@
     $.widget( "my.spinnerQueue", {
  
         options: { 
-            'queue' : {},
+            'queue'     : {},
             'showSpeed' : undefined,
             'hideSpeed' : undefined,
         },
  
         _create: function() {
             $(this.element).append(''+
-                '<div class="spinnerQueue">'+
+                '<div class="spinnerQueue" style="display: none;">'+
                 '   <div class="spinner-bg">'+
                 '       <div class="spinner-image"></div>'+
                 '   </div>' +
@@ -33,10 +33,12 @@
         },
 
         destroy: function() {
-            $(this.element).find('.spinnerQueue').remove();
+            $(this.element).children('.spinnerQueue').remove();
         },
         
         started : function(eventName, isCumulative){
+            isCumulative = undefined === isCumulative ? false : isCumulative;
+            
             var value = this.options.queue[eventName];
 
             if(undefined === value){
@@ -49,7 +51,7 @@
                 if(true === isCumulative){
                     value++;
                 } else {
-                    // The value isn't changing.
+                    value = true;
                 }
             }
 
@@ -92,18 +94,16 @@
         },
 
         _show : function(){
-            var body = document.body;
-            var html = document.documentElement;
+            var height = Math.max( $(this.element).prop('scrollHeight'), $(this.element).height() );
 
-            var height = Math.max( body.scrollHeight, body.offsetHeight, 
-                       html.clientHeight, html.scrollHeight, html.offsetHeight );
-
-            $(this.element).find('.spinnerQueue').stop().fadeIn( this.options.showSpeed );
-            $(this.element).find('.spinnerQueue').css('height', height + 'px');
+            $(this.element).children('.spinnerQueue').stop().fadeIn( this.options.showSpeed );
+            if(height) {
+                $(this.element).children('.spinnerQueue').css('height', height + 'px');
+            }
         },
 
         _hide : function(){
-            $(this.element).find('.spinnerQueue').stop().fadeOut( this.options.hideSpeed );
+            $(this.element).children('.spinnerQueue').stop().fadeOut( this.options.hideSpeed );
         },
 
         _deleteEmpty : function(){

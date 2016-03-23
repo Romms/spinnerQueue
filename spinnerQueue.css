@@ -1,6 +1,6 @@
 .spinnerQueue {
     position: absolute;
-    z-index: 995;
+    z-index: 990;
     top: 0;
     left: 0;
     bottom: 0;
@@ -9,10 +9,10 @@
 }
 
 .spinnerQueue .spinner-bg {
-    position: fixed;
-    z-index: 990;
-    height: 300px;
-    width: 200px;
+    position: absolute;
+    z-index: 995;
+    height: 100px;
+    width: 100px;
     margin: auto;
     top: 0;
     left: 0;
@@ -22,29 +22,28 @@
 
 .spinnerQueue .spinner-image {
     z-index: 999;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     background-color: #337ab7;
-    margin: 50px auto;
-    -webkit-animation: sk-rotateplane 2.5s infinite ease-in-out;
-    animation: sk-rotateplane 2.5s infinite ease-in-out;
+    -webkit-animation: sk-rotateplane 1.5s infinite ease-in-out;
+    animation: sk-rotateplane 1.5s infinite ease-in-out;
 }
 
 @-webkit-keyframes sk-rotateplane {
-    0% { -webkit-transform: perspective(220px) }
-    50% { -webkit-transform: perspective(220px) rotateY(360deg) }
-    100% { -webkit-transform: perspective(220px) rotateY(360deg)  rotateX(360deg) }
+    0% { -webkit-transform: perspective(120px) }
+    50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+    100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
 }
 
 @keyframes sk-rotateplane {
     0% { 
-        transform: perspective(220px) rotateX(0deg) rotateY(0deg);
-        -webkit-transform: perspective(220px) rotateX(0deg) rotateY(0deg) 
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
     } 50% { 
-        transform: perspective(220px) rotateX(-360.1deg) rotateY(0deg);
-        -webkit-transform: perspective(220px) rotateX(-360.1deg) rotateY(0deg) 
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
     } 100% { 
-        transform: perspective(220px) rotateX(-360deg) rotateY(-359.9deg);
-        -webkit-transform: perspective(220px) rotateX(-360deg) rotateY(-359.9deg);
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     }
 }
