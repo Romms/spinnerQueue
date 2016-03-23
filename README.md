@@ -12,12 +12,14 @@ Example:
     <script src="spinnerQueue/spinnerQueue.js" type="text/javascript"></script>
     <link  href="spinnerQueue/spinnerQueue.css" rel="stylesheet" type="text/css" />
 
-    <script>
-        $('body').spinnerQueue({showSpeed: 'fast', hideSpeed:'fast'}).spinnerQueue('started', 'pageLoad', false);
-        $( document ).ready(function() {
-            $('body').spinnerQueue().spinnerQueue('finished', 'pageLoad');
-        });
-    </script>
+    <body>
+        <script>
+            $('body').spinnerQueue({showSpeed: 'fast', hideSpeed:'fast'}).spinnerQueue('started', 'pageLoad');
+            $( document ).ready(function() {
+                $('body').spinnerQueue().spinnerQueue('finished', 'pageLoad');
+            });
+        </script>
+    </body>
 ```
 
 ### Init
@@ -104,7 +106,7 @@ $('body').spinnerQueue(options);
 **queue**
 : It is object that contains tasks names as keys.
 : If value of key is *True* then one call of spinnerQueue('finished', key) is enough to removing task from queue. If spinnerQueue('started', key) or spinnerQueue('started', key, false) is already called, nothing will change.
-: If value of key is *Number* then every spinnerQueue('started', key, [true]) will increase value by 1. Task with name *key* will delete if spinnerQueue('finished', key) is called *value* times.
+: If value of key is *Number* then every spinnerQueue('started', key, true) will increase value by 1. Task with name *key* will delete if spinnerQueue('finished', key) is called *value* times.
 
 #### Destroy
 Remove spinner from DOM
