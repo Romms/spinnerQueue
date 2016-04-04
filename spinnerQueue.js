@@ -59,6 +59,7 @@
 
             if( 1 <= this.queueSize() ){
                 this._show();
+                this._trigger('spinnerShown', [eventName]);
             }
         },
 
