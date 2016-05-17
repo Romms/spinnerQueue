@@ -1,3 +1,7 @@
+body > .spinnerQueue .spinner-bg {
+    position: fixed;
+}
+
 .spinnerQueue {
     position: absolute;
     z-index: 990;
